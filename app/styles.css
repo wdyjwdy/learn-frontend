@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+}
+
+em {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 4px;
+    font-style: normal;
+    text-decoration-color: red;
+}
+
+strong {
+    color: indianred;
+}
+
+kbd {
+    display: none;
+}
+
+.nextra-search input:focus {
+    box-shadow: none;
+    background-color: #b7b7b730;
+}
+
+.nextra-search-results mark {
+    background-color: transparent;
+    color: royalblue;
+}
+
+.nextra-scrollbar {
+    scrollbar-width: none;
+}
+
+button[aria-label="Minimize image"] {
+    opacity: 0;
+}
+
+div[data-rmiz-modal-overlay="visible"] {
+    background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    div[data-rmiz-modal-overlay="visible"] {
+        background-color: black;
+    }
+}

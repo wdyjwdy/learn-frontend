@@ -1,3 +1,22 @@
-# Welcome to Nextra
+import { Cards } from "nextra/components";
+import { Network, Inbox, PenTool } from "lucide-react";
 
-Hello, world!
+# Learn Frontend
+
+<Cards>
+  <Cards.Card
+    icon={<Inbox color="#007fe0" />}
+    title="Tools"
+    href="/tools/test"
+  />
+  <Cards.Card
+    icon={<Network color="#007fe0" />}
+    title="Network"
+    href="/network/dns"
+  />
+  <Cards.Card
+    icon={<PenTool color="#007fe0" />}
+    title="Algorithm"
+    href="/algorithm/sorting"
+  />
+</Cards>
