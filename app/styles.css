@@ -45,3 +45,14 @@ div[data-rmiz-modal-overlay="visible"] {
         background-color: black;
     }
 }
+
+.nextra-navbar .nextra-scrollbar {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .nextra-search,
+    .nextra-search input {
+        width: 216px;
+    }
+}

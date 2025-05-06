@@ -1,5 +1,5 @@
-import { Footer, Layout, Navbar } from "nextra-theme-docs";
-import { Banner, Head } from "nextra/components";
+import { Layout, Navbar } from "nextra-theme-docs";
+import { Search, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import { House } from "lucide-react";
@@ -37,6 +37,7 @@ export default async function RootLayout({ children }) {
             defaultMenuCollapseLevel: 1,
           }}
           darkMode={false}
+          search={<Search placeholder="Search" />}
         >
           {children}
         </Layout>
