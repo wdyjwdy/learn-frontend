@@ -55,14 +55,14 @@ Git Add 会将 Working Tree 的文件添加到 Index，例如：
 
 ### 添加文件
 
-```txt
+```
 # hello.txt
 hello
 ```
 
 假设有以上文件，执行 `git add hello.txt` 后，Git 会做以下事情：
 
-1. 在 objects 目录下生成一个 blob 对象，其内容为 hello，文件名为 Hash(hello)
+1. 在 objects 目录下生成一个 blob 对象，其内容为 hello，文件名为 Hash(hello)。
 
    ```diff
    + .git/objects/ce01362
@@ -88,7 +88,7 @@ hello
    ce01362 hello.txt
    ```
 
-> [!NOTE]
+> [!TIP]
 >
 > 1. 当两个文件的内容相同时，它们的哈希值也相同，因此只会生成一个 blob 对象
 > 2. 空文件夹不会被 Git 管理
@@ -250,7 +250,8 @@ d58f2f5 commit 2
 ```
 
 > [!CAUTION]
-> 删除分支后，分支上的 commit 对象并不会被删除，这些对象会变成垃圾对象
+>
+> 删除分支后，分支上的 commit 对象并不会被删除，这些对象会变成垃圾对象。
 
 ### 当前分支与当前提交
 
@@ -356,20 +357,20 @@ d58f2f5 (HEAD) commit 2
 43bed3d commit 1
 ```
 
-> [!NOTE]
-> 如果想基于该提交工作，可以执行 `git switch -c <name>` 创建一个新分支开始工作
+> [!TIP]
+>
+> 1. 如果想基于该提交工作，可以执行 `git switch -c <name>` 创建一个新分支开始工作。
+> 2. 如果想返回之前的分支，可以执行 `git switch -`。
 
 ![switch-detach](/git-switch-detach.svg)
 
 ## Merge
 
-Git Merge 会合并分支，例如：
-
-1. `git merge feat`: 将 feat 分支合并到当前分支
+- `git merge feat`: 将 feat 分支合并到当前分支
 
 ### 快速合并
 
-```sh
+```
 * b0cd9f5 (feat) commit 3
 * e1e6af3 (HEAD -> main) commit 2
 * 1b157d3 commit 1
@@ -403,7 +404,7 @@ Git Merge 会合并分支，例如：
 
 操作完成后，历史记录如下：
 
-```sh
+```
 * b0cd9f5 (HEAD -> main, feat) commit 3
 * e1e6af3 commit 2
 * 1b157d3 commit 1
@@ -413,7 +414,7 @@ Git Merge 会合并分支，例如：
 
 ### 三路合并
 
-```sh
+```
 * a9532ef (HEAD -> main) commit 3
 | * 88d8b74 (feat) commit 2
 |/
@@ -468,7 +469,7 @@ Git Merge 会合并分支，例如：
 
 操作完成后，历史记录如下：
 
-```sh
+```
 *   cbd588d (HEAD -> main) Merge branch 'feat'
 |\
 | * 88d8b74 (feat) commit 2
@@ -478,13 +479,14 @@ Git Merge 会合并分支，例如：
 ```
 
 > [!NOTE]
-> 注意，Merge 操作产生的提交，有两个 parent，即两个父节点
+>
+> 注意，Merge 操作产生的提交，有两个 parent，即两个父节点。
 
 ![3-way-merge](/git-merge.svg)
 
 ### 三路合并产生冲突
 
-```sh
+```
 * fb1c925 (feat) commit 3
 | * bcf8030 (HEAD -> main) commit 2
 |/
@@ -540,7 +542,7 @@ Git Merge 会合并分支，例如：
 
 操作完成后，历史记录如下：
 
-```sh
+```
 *   ab3525e (HEAD -> main) Merge branch 'feat'
 |\
 | * fb1c925 (feat) commit 3
@@ -559,9 +561,7 @@ Merge 操作时会更新 ORIG_HEAD，指向 Merge 前的 commit 对象，
 
 ## Rebase
 
-Rebase 会将提交重新应用到指定分支，例如：
-
-1. `git rebase main`: 将当前分支的 commit 重新提交到 main 分支上
+- `git rebase main`: 将当前分支的 commit 重新提交到 main 分支上
 
 ### 应用分支
 
@@ -604,6 +604,7 @@ Rebase 会将提交重新应用到指定分支，例如：
 ```
 
 > [!CAUTION]
+>
 > 注意 rebase 后的 commit 哈希值会改变
 
 ![git rebase](/git-rebase.svg)
@@ -754,6 +755,7 @@ e7f88c9 commit 1
 ```
 
 > [!CAUTION]
+>
 > 删除内容标签后，tag 对象不会被删除，成为了垃圾对象
 
 ## Clone
