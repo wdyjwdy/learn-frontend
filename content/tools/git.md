@@ -2,9 +2,7 @@
 
 ## Init
 
-Git Init 会初始化一个代码仓库，例如：
-
-1. `git init`: 在当前目录下初始化一个代码仓库
+- `git init`: 在当前目录下初始化一个代码仓库
 
 ### 新建仓库
 
@@ -17,6 +15,7 @@ fruits
 假设有以上目录结构，在 `fruits` 路径下执行 `git init` 后，Git 会做以下事情：
 
 1. 创建一个 .git 文件夹
+
    ```diff
    fruits
      ├── apple.txt
@@ -38,14 +37,21 @@ fruits
    +       └── tags
    ```
 
+### 关联远程仓库
+
+```sh
+git remote add origin <repo-addr>
+git push -u origin main
+```
+
 ## Add
 
 Git Add 会将 Working Tree 的文件添加到 Index，例如：
 
-1. `git add hello.txt`: 添加 hello.txt
-2. `git add fruits`: 添加 fruits 目录下所有文件
-3. `git add .`: 添加所有文件
-4. `git add *.js`: 添加所有 js 文件
+- `git add hello.txt`: 添加 hello.txt
+- `git add fruits`: 添加 fruits 目录下所有文件
+- `git add .`: 添加所有文件
+- `git add *.js`: 添加所有 js 文件
 
 ### 添加文件
 
@@ -56,7 +62,7 @@ hello
 
 假设有以上文件，执行 `git add hello.txt` 后，Git 会做以下事情：
 
-1. 在 objects 目录下生成一个 blob 对象，其内容为 'hello'，文件名为 'hello' 的哈希值
+1. 在 objects 目录下生成一个 blob 对象，其内容为 hello，文件名为 Hash(hello)
 
    ```diff
    + .git/objects/ce01362
@@ -98,11 +104,9 @@ hello
 
 ## Commit
 
-Git Commit 会将 Index 中的内容提交到 Repository，例如：
-
-1. `git commit`: 提交 Index 中的内容，并打开 [Vim](../vim.md) 输入提交信息
-2. `git commit -m 'update'`: 提交 Index 中的内容，并使用 'update' 作为提交信息
-3. `git commit --amend`: 等价于 `git reset --soft HEAD~1` 加 `git commit`（参考 [Reset](#reset) 和 [Commit](commit)）
+- `git commit`: 提交 Index 中的内容到 Repository，并使用 [Vim](./vim.md) 输入提交信息。
+- `git commit -m 'update'`: 提交 Index 中的内容到 Repository，并使用 update 作为提交信息。
+- `git commit --amend`: 等价于 `git reset --soft HEAD~1` 加 `git commit`。
 
 > [!TIP]
 >
@@ -1310,18 +1314,15 @@ apple.txt (v1)
 
 ## Log
 
-Git Log 会打印提交记录，例如：
-
-1. `git log`: 打印提交记录
-2. `git log --oneline`: 打印提交记录，单行显示
-3. `git log --graph`: 打印提交记录，图形显示
-4. `git log hello.txt`: 打印 hello.txt 文件的提交记录
+- `git log`: 打印提交记录
+- `git log --oneline`: 单行显示
+- `git log --graph`: 图形显示
+- `git log hello.txt`: 打印指定文件的提交记录
 
 > [!TIP]
+>
 > 日志命令通常都会集成在 IDE 里，了解即可
 
 ## Reflog
 
-Git Reflog 会打印操作记录，例如：
-
-1. `git reflog`: 打印操作记录
+- `git reflog`: 打印操作记录

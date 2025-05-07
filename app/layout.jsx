@@ -3,6 +3,7 @@ import { Search, Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import "nextra-theme-docs/style.css";
 import { House } from "lucide-react";
+import "katex/dist/katex.min.css";
 import "./styles.css";
 
 export const metadata = {

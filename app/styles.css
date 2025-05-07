@@ -56,3 +56,37 @@ div[data-rmiz-modal-overlay="visible"] {
         width: 216px;
     }
 }
+
+.callout-box {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.callout-tip {
+    border-color: rgba(0, 128, 0, 0.3);
+    background-color: rgba(0, 128, 0, 0.1);
+}
+
+.callout-tip strong {
+    color: seagreen;
+}
+
+.callout-caution {
+    border-color: rgba(128, 0, 0, 0.3);
+    background-color: rgba(128, 0, 0, 0.1);
+}
+
+.callout-caution strong {
+    color: indianred;
+}
+
+.callout-note {
+    border-color: rgba(0, 0, 200, 0.3);
+    background-color: rgba(0, 0, 200, 0.1);
+}
+
+.callout-note strong {
+    color: royalblue;
+}
