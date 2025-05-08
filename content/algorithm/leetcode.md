@@ -55,3 +55,25 @@ while (a < m && b < n) {
   }
 }
 ```
+
+## 滑动窗口
+
+### 定长窗口
+
+Examples:
+[1343](https://leetcode.cn/problems/number-of-sub-arrays-of-size-k-and-average-greater-than-or-equal-to-threshold/description/),
+[643](https://leetcode.cn/problems/maximum-average-subarray-i/description/),
+[1052](https://leetcode.cn/problems/grumpy-bookstore-owner/description/),
+[1423](https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/description/),
+[567](https://leetcode.cn/problems/permutation-in-string/description/),
+[438](https://leetcode.cn/problems/find-all-anagrams-in-a-string/description/)
+
+```js
+let [a, b] = [0, 0];
+while (b <= n) {
+  if (b - a === window_size) a++;
+  b++;
+}
+```
+
+### 动态窗口
