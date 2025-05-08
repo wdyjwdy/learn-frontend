@@ -25,6 +25,9 @@ while (a < b) {
 Examples:
 [26](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/description/),
 [80](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/description/),
+[27](https://leetcode.cn/problems/remove-element/description/),
+[283](https://leetcode.cn/problems/move-zeroes/description/),
+[88](https://leetcode.cn/problems/merge-sorted-array/description/)
 
 ```js
 let [a, b] = [0, 1];
@@ -32,7 +35,23 @@ while (b < n) {
   if (cond) a++;
   b++;
 }
-return result;
 ```
 
 ### 分离指针
+
+Examples:
+[350](https://leetcode.cn/problems/intersection-of-two-arrays-ii/description/),
+[392](https://leetcode.cn/problems/is-subsequence/description/),
+[415](https://leetcode.cn/problems/add-strings/description/)
+
+```js
+let [a, b] = [0, 0];
+while (a < m && b < n) {
+  if (cond_1) a++;
+  else if (cond_2) b++;
+  else {
+    a++;
+    b++;
+  }
+}
+```
