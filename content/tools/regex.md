@@ -4,44 +4,49 @@
 
 ### Position
 
-| Symbol | Means                        | Examples                      |
-| ------ | ---------------------------- | ----------------------------- |
-| ^      | start of the line            | **^dis** starts with dis      |
-| $      | end of the line              | **er$** ends with er          |
-| \b     | word boundary                | **\bcat\b** cat in "i am cat" |
-| (?=)   | lookahead (toward the right) |                               |
-| (?<=)  | lookbehind (toward the left) |                               |
-| (?!)   | negative lookahead           |                               |
-| (?<!)  | negative lookbehind          |                               |
+| Symbol | Means                        | Examples                    |
+| ------ | ---------------------------- | --------------------------- |
+| ^      | start of the line            | `^dis` *dis*miss, *dis*like |
+| $      | end of the line              | `er$` oth*er*, lat*er*      |
+| \b     | word boundary                | `\bcat\b` a _cat_           |
+| (?=)   | lookahead (toward the right) |                             |
+| (?<=)  | lookbehind (toward the left) |                             |
+| (?!)   | negative lookahead           |                             |
+| (?<!)  | negative lookbehind          |                             |
 
 ### Character
 
-| Symbol     | Means                | Examples                                                                                                    |
-| ---------- | -------------------- | ----------------------------------------------------------------------------------------------------------- |
-| []         | any character listed | **[abc]** a, b or c<br>**[0-9]** 0 through 9<br>**[-.+]** dash, dot, or plus<br>**[\^A-Z]** not A through Z |
-| .          | any one character    | **se.** sea, see or se@                                                                                     |
-| \meta-char | escape               | **1\\.2** only match 1.2                                                                                    |
-| \s         | space                | [ \n\t\r\f\v]                                                                                               |
-| \w         | word                 | [0-9a-zA-Z_]                                                                                                |
-| \d         | digit                | [0-9]                                                                                                       |
+| Symbol     | Means                | Examples                   |
+| ---------- | -------------------- | -------------------------- |
+| []         | any character listed | `[abc]` a, b or c          |
+|            |                      | `[0-9]` 0 through 9        |
+|            |                      | `[-.+]` dash, dot, or plus |
+|            |                      | `[^A-Z]` not A through Z   |
+| .          | any one character    | `se.` _sea_, *see*k        |
+| \meta-char | escape               | `1\.2` _1.2_               |
+| \s         | space                | equal to `[ \n\t\r\f\v]`   |
+| \w         | word                 | equal to `[0-9a-zA-Z_]`    |
+| \d         | digit                | equal to `[0-9] `          |
 
 ### Expression
 
-| Symbol | Means                                                                  | Examples                                                                        |
-| ------ | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| \|     | one of several subexpressions                                          | **gray\|grey** gray or grey<br>**gr(a\|e)y** gray or grey                       |
-| ()     | 1. limit scope of \|<br>2. group subexpression<br>3. group and capture | **gr(a\|e)y** gray or grey<br>**1(st)?** 1 or 1st<br>**([a-z]) ([0-9])** $1, $2 |
-| \num   | backreference                                                          | **([a-z]+) \1** match "the the" or "at at"                                      |
-| (?:)   | group but do not capture                                               | **([a-z]) (?:[0-9])** $1                                                        |
+| Symbol | Means                         | Examples                         |
+| ------ | ----------------------------- | -------------------------------- |
+| \|     | one of several subexpressions | `gray\|grey` _gray_, _grey_      |
+| ()     | limit scope of \|             | `gr(a\|e)y` _gray_, _grey_       |
+|        | group subexpression           | `1(st)?` _1_, _1st_              |
+|        | group and capture             | `([a-z]) ([0-9])` \$1, \$2       |
+| \num   | backreference                 | `([a-z]+) \1` _the the_, _at at_ |
+| (?:)   | group but do not capture      | `([a-z]) (?:[0-9])` $1           |
 
 ### Quantifiers
 
-| Symbol     | Means           | Examples                                     |
-| ---------- | --------------- | -------------------------------------------- |
-| ?          | optional        | **July?** Jul or July<br>**1(st)?** 1 or 1st |
-| \*         | any number      |                                              |
-| +          | one or more     |                                              |
-| {min, max} | specified range |                                              |
+| Symbol     | Means           | Examples              |
+| ---------- | --------------- | --------------------- |
+| ?          | optional        | `July?` _Jul_, _July_ |
+| \*         | any number      |                       |
+| +          | one or more     |                       |
+| {min, max} | specified range |                       |
 
 ## Options
 

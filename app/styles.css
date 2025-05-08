@@ -4,7 +4,6 @@ h1 {
 
 em {
     text-decoration-line: underline;
-    text-decoration-style: dashed;
     text-underline-offset: 4px;
     font-style: normal;
     text-decoration-color: red;
