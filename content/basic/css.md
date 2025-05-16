@@ -149,3 +149,65 @@
      section {...}
    }
    ```
+
+## Flex
+
+![flex](/basic-css-flex.svg)
+
+1. Flex Container
+
+   - `flex-direction`: 主轴的方向，默认为 row。
+
+     ```
+     row row-reverse column column-reverse
+     ```
+
+   - `flex-wrap`: 元素溢出时是否换行，默认为 no-wrap。
+
+     ```
+     wrap no-wrap
+     ```
+
+   - `justify-content`: 主轴上元素的对齐方式，默认为 start。
+
+     ```
+     flex-start center flex-end space-between space-around space-evenly
+     ```
+
+   - `align-items`: 交叉轴上元素的对齐方式，默认为 stretch。
+
+     ```
+     flex-start center flex-end baseline stretch
+     ```
+
+   - `align-content`: 交叉轴上主轴的对齐方式。
+
+     ```
+     flex-start center flex-end space-between space-around space-evenly stretch
+     ```
+
+2. Flex Item
+
+   - `flex`: grow, shrink, basis 的简写。
+   - `flex-grow`: 延展元素，按比例分配剩余空间，默认为 0。
+
+     ```
+     [0, 1): 占比百分数
+     [1, Infinity): 占比数
+     ```
+
+   - `flex-shrink`: 收缩元素，按比例分配收缩空间，默认为 1。
+
+     ```
+     [0, 1): 占比百分数
+     [1, Infinity): 占比数
+     ```
+
+   - `flex-basis`: 设置元素的宽度，默认为 auto。
+   - `align-self`: 交叉轴上指定元素的对齐方式。
+
+     ```
+     flex-start center flex-end baseline stretch
+     ```
+
+   - `order`: 元素的排列顺序
