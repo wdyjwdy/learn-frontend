@@ -41,4 +41,12 @@ export default {
       breadcrumb: false,
     },
   },
+  examples: {
+    title: "Examples",
+    type: "page",
+    theme: {
+      timestamp: false,
+      breadcrumb: false,
+    },
+  },
 };
