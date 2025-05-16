@@ -211,3 +211,54 @@
      ```
 
    - `order`: 元素的排列顺序
+
+## Box Model
+
+![box](/basic-css-box.svg)
+
+1. 标准盒模型：`height` 指定 content 高度。
+2. 替代盒模型：`height` 指定 content + padding + border 高度。
+
+   ```css
+   .box {
+     box-sizing: border-box; /* 使用替代盒模型 */
+   }
+   ```
+
+## Media Query
+
+媒体查询语法: `@media media-type operator (media-feature) {...}`
+
+- `media-type`
+
+  ```
+  all print screen
+  ```
+
+- `operator`
+
+  ```
+  and or not only
+  ```
+
+- `media-feature`
+
+  ```
+  aspect-ratio height width prefers-color-scheme
+  ```
+
+媒体查询例子
+
+1. 宽度范围
+
+   ```css
+   @media (min-width: 10em) {-} /* 等价于 width >= 10em */
+   @media (max-width: 10em) {-} /* 等价于 width < 10em */
+   @media (40em <= width <= 50em) {-}
+   ```
+
+2. 夜间模式
+
+   ```css
+   @media (prefers-color-scheme: dark) {-}
+   ```
