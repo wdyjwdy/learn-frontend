@@ -77,3 +77,17 @@ while (b <= n) {
 ```
 
 ### 动态窗口
+
+Examples:
+[3](https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/),
+[209](https://leetcode.cn/problems/minimum-size-subarray-sum/description/),
+[674](https://leetcode.cn/problems/longest-continuous-increasing-subsequence/description/),
+[485](https://leetcode.cn/problems/max-consecutive-ones/description/)
+
+```js
+let [a, b] = [0, 0];
+while (b <= n) {
+  if (cond) a++;
+  else b++;
+}
+```
