@@ -49,4 +49,12 @@ export default {
       breadcrumb: false,
     },
   },
+  libraries: {
+    title: "Libraries",
+    type: "page",
+    theme: {
+      timestamp: false,
+      breadcrumb: false,
+    },
+  },
 };
