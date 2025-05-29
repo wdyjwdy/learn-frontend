@@ -1,6 +1,6 @@
 # JS
 
-## 数组
+## Array
 
 1. 迭代数组
 
@@ -12,12 +12,28 @@
    | skip array element | ✅  |   ❌   |   ❌    |
    | skip array hole    | ❌  |   ❌   |   ✅    |
 
+2. 拷贝数组
+
+   ```js
+   let newArr = arr.slice();
+   let newArr = [...arr];
+   ```
+
+3. 判断数组
+
+   ```js
+   Array.isArray([]); // true
+   [] instanceof Array // true
+   [].constructor === Array // true
+   Object.prototype.toString.call([]).slice(8,-1) === 'Array' // true
+   ```
+
 > [!TIP]
 >
 > - **类数组对象**：有 `length`, `非负整数` 属性的对象。
 > - **可迭代对象**：实现 `[Symbol.iterator]()` 方法的对象。
 
-## 对象
+## Object
 
 1. 创建对象
 
@@ -51,12 +67,19 @@
    for (let key in obj) // 迭代可枚举属性
    ```
 
+5. 操作原型
+
+   ```js
+   Object.getPrototypeOf(obj); // 查看原型
+   Object.setPrototypeOf(obj, { a: 1 }); // 修改原型
+   ```
+
 > [!TIP]
 >
 > - **自有属性**：属性存在于对象内，而不是原型链中。
 > - **可枚举属性**：enumerable 为 true 的属性。
 
-## 函数
+## Function
 
 ### this
 
@@ -111,7 +134,7 @@ getInteger()[3](); // 10
 1. `var` 声明的变量会被提升，因此所有闭包共享变量 `i`
 2. `let` 声明的变量范围是循环体，每次迭代都会生成独立的变量 `i`
 
-## 类
+## Classes
 
 1. 创建一个类
 
@@ -156,7 +179,7 @@ getInteger()[3](); // 10
    Person.isPerson = function() { ... }
    ```
 
-## 类型判断
+## Types
 
 1. typeof
 
@@ -176,7 +199,7 @@ getInteger()[3](); // 10
    typeof others    // 'object'
    ```
 
-## 迭代器
+## Iterator
 
 迭代器有三个组成部分：
 
@@ -238,7 +261,7 @@ class Range {
 }
 ```
 
-## 模块化
+## Modules
 
 1. EcmaScript Modules (ESM)
 
@@ -285,11 +308,11 @@ class Range {
    const { sum, square } = require("math.js");
    ```
 
-## 异步
+## Async
 
 JS 本身不是异步的，异步由 Browser 和 Node 提供。
 
-### 基于 Callback
+### Callback
 
 1. Timer
 
@@ -324,7 +347,7 @@ JS 本身不是异步的，异步由 Browser 和 Node 提供。
 > 1. **回调地狱**：在处理嵌套回调时，代码会难以阅读（Promise 使用链式调用来解决这个问题）
 > 2. **异常处理**：异步函数中的异常，无法传回函数调用者（Promise 使用 catch 方法来捕获链式调用中的异常）
 
-### 基于 Promise
+### Promise
 
 [Promise](https://262.ecma-international.org/10.0/index.html#sec-promise-objects) 只有三种状态：
 
@@ -419,7 +442,7 @@ If the network is ok
 2. c1 be invoked, p3 be fulfilled
 3. c2 be invoked, p4 be fulfilled
 
-### 基于 Async/await
+### Async/await
 
 async 和 await 关键字简化了 Promise 的使用，让异步代码看起来像同步代码
 
