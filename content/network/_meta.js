@@ -5,4 +5,5 @@ export default {
   tcp: "TCP",
   tls: "TLS",
   http: "HTTP",
+  security: "Security",
 };
