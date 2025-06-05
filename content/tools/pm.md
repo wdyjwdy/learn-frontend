@@ -146,12 +146,6 @@ package-lock.json 文件的用途：
 
 ## PNPM
 
-PNPM 相对于 NPM 的优化：
-
-- 节省磁盘空间
-- 加快安装速度
-- 安装时不会提升依赖到根目录
-
 ### init
 
 - `pnpm init{:sh}`: Create a package.json file.
@@ -167,4 +161,112 @@ PNPM 相对于 NPM 的优化：
 
 ### create
 
-- `ppnpm create rsbuild@latest{:sh}`: Create a project.
+- `pnpm create rsbuild@latest{:sh}`: Create a project.
+
+## NPM vs PNPM
+
+### 文件路径
+
+对于依赖：`A{B,C}, B{C}`，npm 会把依赖 B, C 都提升到顶层目录。因此很难看出依赖关系。
+
+```
+node_modules
+├── A
+├── B
+└── C
+```
+
+而 pnpm 会保留这种依赖关系。其中 node_modules 下的依赖会被 soft link 到 .pnpm。同时 .pnpm 下 A, B, C 中的其他文件会被 hard link 到 .pnpm-store。
+
+```
+node_modules
+├── .pnpm
+│   ├── A
+│   │   ├── B (soft link)
+│   │   └── C (soft link)
+│   ├── B
+│   │   └── C (soft link)
+│   └── C
+├── A (soft link)
+└── B (soft link)
+```
+
+```
+.pnpm-store
+├── A
+├── B
+└── C
+```
+
+> [!TIP]
+>
+> **幽灵依赖**：npm 具有扁平化结构，子依赖会被提升到根目录，从而导致项目可以直接导入子依赖。而 pnpm 具有层级关系，避免了这个问题。
+
+### 磁盘空间
+
+假设 project-1 安装依赖 `dev-2`, `dev-3`，project-2 安装依赖 `dev-3`, `dev-4`。npm 会在磁盘安装两次 `dev-3`。
+
+```
+node_modules (project 1)
+├── dev 2
+└── dev 3
+```
+
+```
+node_modules (project 2)
+├── dev 3
+└── dev 4
+```
+
+而 pnpm 使用全局存储，不会重复安装依赖。其中 `dev-1`, `dev-2`, `dev-3` 的内容会 hard link 到 .pnpm-store。
+
+```
+node_modules (project 1)
+├── .pnpm
+│ ├── dev 2 (hard link)
+│ └── dev 3 (hard link)
+├── dev 2
+└── dev 3
+```
+
+```
+node_modules (project 2)
+├── .pnpm
+│ ├── dev 3 (hard link)
+│ └── dev 4 (hard link)
+├── dev 3
+└── dev 4
+```
+
+```
+.pnpm-store
+├── dev 2
+├── dev 3
+└── dev 4
+```
+
+> [!CAUTION]
+>
+> `npm install -g` 并非全局安装依赖，而是提供全局命令行工具（CLI）。
+
+![store](/tools-pm-pnpm-store.svg)
+
+### 安装速度
+
+- 安装依赖时，npm 会重新下载并创建文件，而 pnpm 只需创建 hard link。
+- pnpm 可以并行处理多个依赖。
+- 安装依赖时，npm 会进行扁平化，会有额外的计算量。例如安装 `A{C@1}, B{C@2}`。
+
+  ```
+  .node_modules
+  ├── A
+  ├── C@1
+  └── B
+      └── C@2
+  ```
+
+### 总结
+
+- PNPM 保留了依赖的层级关系，NPM 丢失了依赖层级关系，并会导致幽灵依赖。
+- PNPM 实现了跨项目依赖共享，NPM 会重复储存依赖。
+- PNPM 安装速度更快。
