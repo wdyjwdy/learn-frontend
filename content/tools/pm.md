@@ -4,11 +4,11 @@
 
 ### version
 
-基本格式：<大版本>.<小版本>.<补丁号>
+Fomart: `Major.Minor.Patch`
 
-- 大版本：破坏向后兼容
-- 小版本：增加新功能，不影响兼容
-- 补丁号：修复一个 bug
+- Major (大版本): breaking change
+- Minor (小版本): new feature
+- Patch (补丁号): bug fix
 
 ---
 
