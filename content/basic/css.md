@@ -88,6 +88,49 @@
    h1:target {...} /* 锚点指向的元素 */
    ```
 
+## Pseudo Elements
+
+- before, after
+
+  ```css
+  /* 在 <a> 前创建一个元素 */
+  a::before {
+    content: "🔗";
+  }
+  ```
+
+- backdrop
+
+  ```css
+  /* 选中 popover 后的背景 */
+  ::backdrop {
+    backdrop-filter: blur(3px);
+  }
+  ```
+
+- first-letter, first-line
+
+  ```css
+  /* 放大首字母 */
+  p::first-letter {
+    font-size: 2rem;
+  }
+
+  /* 高亮首行 */
+  p::first-line {
+    color: red;
+  }
+  ```
+
+- selection
+
+  ```css
+  /* 高亮选中的文字 */
+  p::selection {
+    background-color: yellow;
+  }
+  ```
+
 ## Nesting
 
 1. Child Selector
@@ -322,3 +365,7 @@
     transform: translate(-50%);
   }
   ```
+
+```
+
+```
