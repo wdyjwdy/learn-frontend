@@ -262,3 +262,63 @@
    ```css
    @media (prefers-color-scheme: dark) {-}
    ```
+
+## Functions
+
+- calc
+
+  ```css
+  body {
+    width: calc(100% - 80px);
+    width: calc((100% - 80px) / 2);
+    width: calc(var(--width) / 2);
+  }
+  ```
+
+- min, max
+
+  ```css
+  body {
+    width: min(1vw, 4em, 80px);
+  }
+  ```
+
+- var
+
+  ```css
+  :root {
+    --bg-color: pink;
+  }
+
+  body {
+    background-color: var(--bg-color);
+  }
+  ```
+
+- minmax (used with grid)
+
+  ```css
+  body {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr);
+    grid-template-columns: minmax(max-content, 300px);
+  }
+  ```
+
+- repeat (used with grid)
+
+  ```css
+  body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  ```
+
+- translate (used with transform)
+
+  ```css
+  body {
+    transform: translate(20px, 20px);
+    transform: translate(-50%);
+  }
+  ```
